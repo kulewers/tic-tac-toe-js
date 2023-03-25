@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  justify-content: space-between;
+  color: #222;
+  
+}
+
+.title {
+  font-size: 42px;
+  margin-top: 70px;
+}
+
+.game-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  font-family: 'Indie Flower', cursive;
+}
+
+.board {
+  background-color: rgb(22, 22, 22);
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 3px;
+}
+
+.players-turn {
+  font-size: 24px;
+}
+
+.restart {
+  
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.player-forms {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.newGameModal > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newGameModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 450px;
+  padding: 1.3rem;
+  min-height: 200px;
+  position: absolute;
+  top: 30%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.lower-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.form input {
+  padding: 0.3rem 0.3rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.play-btn {
+  background-color: lightgreen;
+  color: #222;
+  padding: 0.7em 2em;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.reselect {
+  text-decoration: underline;
+  font-size: 18px;
+  padding: 0.3em 0.3em;
+}
+
+.cancel-btn {
+  color: #222;
+  padding: 0.7em 2em;
+  text-decoration: underline;
+  background-color: rgba(0,0,0,0);
+}
