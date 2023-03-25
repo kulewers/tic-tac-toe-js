@@ -116,15 +116,12 @@ const Game = (player1, player2) => {
     changeFirstTurnPlayer()
     currentPlayer = firstTurnPlayer
     displayTruns()
-    console.log(firstTurnPlayer)
   }
 
   function handleRestart() {
     currentPlayer = firstTurnPlayer
     displayTruns()
   }
-
-  console.log(firstTurnPlayer)
 
   return {
     getCurrentPlayer,
