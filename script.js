@@ -1,3 +1,4 @@
+
 const Board = function(game){
 
   var representedGame = game
@@ -37,6 +38,11 @@ const Board = function(game){
     if (victoryValication()) {
       representedGame.handleVictory()
       restart()
+      return
+    }
+    if (board.filter(cell => cell !== undefined).length > 8) {
+      restart()
+      return
     }
     representedGame.changeTurns()
   }
@@ -60,6 +66,7 @@ const Board = function(game){
   function restart() {
     board = [...Array(9)]
     render();
+    representedGame.handleRestart()
   }
 
 }
@@ -70,7 +77,13 @@ const Game = (player1, player2) => {
   var currentPlayer = players[0]
   var firstTurnPlayer = currentPlayer
 
+  // cache DOM
+  const playerTurnText = document.querySelector(".players-turn")
+  const scoreBoard = document.querySelector(".score")
+
+
   displayTruns()
+  updateScoreDisplay()
 
   function changeFirstTurnPlayer() {
     firstTurnPlayer = players[1 - players.indexOf(firstTurnPlayer)]
@@ -85,22 +98,39 @@ const Game = (player1, player2) => {
   }
 
   function displayTruns() {
-    const playerTurnText = document.querySelector(".players-turn")
     playerTurnText.textContent = `${currentPlayer.name}'s turn`
   }
+
   function changeTurns() {
     changePlayers()
     displayTruns()
   }
 
-  function handleVictory() {
-    changeFirstTurnPlayer()
+  function updateScoreDisplay() {
+    scoreBoard.textContent = `${player1.score} - ${player2.score}`
   }
+
+  function handleVictory() {
+    currentPlayer.score += 1
+    updateScoreDisplay()
+    changeFirstTurnPlayer()
+    currentPlayer = firstTurnPlayer
+    displayTruns()
+    console.log(firstTurnPlayer)
+  }
+
+  function handleRestart() {
+    currentPlayer = firstTurnPlayer
+    displayTruns()
+  }
+
+  console.log(firstTurnPlayer)
 
   return {
     getCurrentPlayer,
     changeTurns,
-    handleVictory
+    handleVictory,
+    handleRestart
   }
 
 }
